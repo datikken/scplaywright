@@ -18,7 +18,7 @@ async def main():
         await page.goto(f'{HOME_PAGE}')
         els = await page.query_selector_all('a')
         links = [await getHref(link) for link in els]
-        print(links)
+        print(set(links))
         await page.screenshot(path=f'example-{browser_type.name}.png')
         await browser.close()
 
